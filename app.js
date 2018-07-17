@@ -10,18 +10,29 @@ const specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']; //
 const otherCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\'', '\"', '<', '>', ',', '.', '?', '/', '|', '`', '~']; //21 Characters
 
 //what paramaters to use to generate password.
-let parameters = [lowerCase, upperCase, numbers, specialCharacters, otherCharacters]; 
+let parameters = [lowerCase, upperCase, numbers, specialCharacters, otherCharacters];
+
+//Sets parameter options
+function setParameters() {
+  let options = [lowerCase, upperCase, numbers, specialCharacters, otherCharacters];
+
+};
 
 //function to generate random password
 function generatePassword(passwordLength) { //passwordLength determines how many characters the password will be.
   let generatedPassword = [];
-  console.log('password length 2: ', passwordLength);
   for (let i = 0; i < passwordLength; i++) {
     let charSet = Math.floor(Math.random()*parameters.length);
     let charSel = Math.floor(Math.random()*parameters[charSet].length);
-    generatedPassword.push(parameters[charSet][charSel])
-  }
-  // console.log(generatedPassword.join(''));
+    //checks if a repeating character
+    if (parameters[charSet][charSel] === generatedPassword[i - 1]) {
+      console.log('duplicate character found and dropped');
+      i--;
+    } else {
+      generatedPassword.push(parameters[charSet][charSel]);
+    }
+  };
+  console.log('gen pass length: ', generatedPassword.length);
   return generatedPassword.join('');
 };
 
@@ -29,9 +40,6 @@ function generatePassword(passwordLength) { //passwordLength determines how many
 document.getElementById("generate-password").addEventListener("click", function(event){
   event.preventDefault();
   let passwordLength = document.getElementById("password-length").value;
-  console.log('password length 1: ', passwordLength);
   let result = generatePassword(passwordLength);
-  console.log('result: ', result);
   document.getElementById("generated-password").value = result;
-  // return result;
 });

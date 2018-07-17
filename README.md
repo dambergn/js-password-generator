@@ -13,7 +13,7 @@ https://passwordsgenerator.net/
 - [ ]Choose numbers.
 - [ ]Choose special characters.
 - [ ]Choose other special characters.
-- [ ]Prevent repeats.
+- [X]Prevent repeats.
 - [ ]Exclude similar characters. (helpful if the password is not being coppied and pasted)
 - [ ]Basic presets if options are not selected.
 - [ ]Choose specific characters to exclude.
