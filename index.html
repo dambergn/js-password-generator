@@ -1,0 +1,32 @@
+< !DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+  </head>
+
+  <body>
+    <h1>Password Generator</h1>
+    <form>
+      <p>Select Password Length: </p>
+      <select id="password-length" value="6">
+        <option disabled selected value>-- Weak --</option>
+        <option value="6" selected>6</option>
+        <option value="8">8</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+      </select>
+      <br>
+      <!-- <input type="checkbox" name="lower-case" value="lower-case"> Lower case letters<br> -->
+      <!-- <textarea id="password-length" type="text"></textarea> -->
+      <button id="generate-password">Generate Password</button>
+      <br>
+      <textarea id="generated-password" type="text"></textarea>
+    </form>
+    <script src="app.js"></script>
+  </body>
+
+  </html>
