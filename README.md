@@ -13,17 +13,24 @@ To call the function simply use generatePassword(8); with the first paramater be
 replace # with the numerical character length you want the password to be.
 replace the other options with true or false depending on if you want to use those options.
 
-generatePassword(#, lowerCase, upperCase, numbers, specialCaracters);
+generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCharacters, beginsWithALetter, repeatingCharacters);
 
 # Features
 - [X]Choose password length.
 - [X]Choose lowercase.
 - [X]Choose uppercase.
 - [X]Choose numbers.
-- [ ]Choose special characters.
-- [ ]Choose other special characters.
+- [X]Choose special characters.
+- [X]Choose other special characters.
 - [X]Prevent repeats.
+- [X]Ensure first character is a letter.
 - [ ]Exclude similar characters. (helpful if the password is not being coppied and pasted)
-- [ ]Basic presets if options are not selected.
+- [X]Basic presets if options are not selected.
+- [ ]Don't use similar characters.
+- [ ]Don't use sequential characters.
 - [ ]Choose specific characters to exclude.
 - [ ]Password strength checker.
+
+# Bugs and fixes
+- [ ]Prohibbit combination of no uppercase, no lowercase, begins with a letter. (causes crash)
+- [ ]Find a better way to specify options while calling the function.
