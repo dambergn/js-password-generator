@@ -10,17 +10,35 @@ const specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']; //
 const otherCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\'', '\"', '<', '>', ',', '.', '?', '/', '|', '`', '~']; //21 Characters
 
 //what paramaters to use to generate password.
-let parameters = [lowerCase, upperCase, numbers, specialCharacters, otherCharacters];
-
-//Sets parameter options
-function setParameters() {
-  let options = [lowerCase, upperCase, numbers, specialCharacters, otherCharacters];
-
-};
+// let parameters = [lowerCase, upperCase, numbers, specialCharacters];
 
 //function to generate random password
-function generatePassword(passwordLength) { //passwordLength determines how many characters the password will be.
+function generatePassword(passwordLength, lower, upper, numb) { //passwordLength determines how many characters the password will be.
   let generatedPassword = [];
+  let parameters = [];
+
+  //set lower case by default
+  if(lower == false) {
+    //do nothing
+  }else if (lower == null || true) {
+    parameters.push(lowerCase);
+  };
+
+  //set upper case by default
+  if(upper == false) {
+    //do nothing
+  }else if (upper == null || true) {
+    parameters.push(upperCase);
+  };
+
+  //set numbers case by default
+  if(numb == false) {
+    //do nothing
+  }else if (numb == null || true) {
+    parameters.push(numbers);
+  };
+
+
   for (let i = 0; i < passwordLength; i++) {
     let charSet = Math.floor(Math.random()*parameters.length);
     let charSel = Math.floor(Math.random()*parameters[charSet].length);
@@ -39,7 +57,13 @@ function generatePassword(passwordLength) { //passwordLength determines how many
 //function to generate password to web page
 document.getElementById("generate-password").addEventListener("click", function(event){
   event.preventDefault();
+  
+  //choose character options and customization
+  let passwordLowerCase = document.getElementById("lower-case").checked;
+  let passwordUpperCase = document.getElementById("upper-case").checked;
+  let passwordNumbers = document.getElementById("numbers").checked;
+  
   let passwordLength = document.getElementById("password-length").value;
-  let result = generatePassword(passwordLength);
+  let result = generatePassword(passwordLength, passwordLowerCase, passwordUpperCase, passwordNumbers);
   document.getElementById("generated-password").value = result;
 });
