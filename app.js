@@ -13,7 +13,7 @@ const otherCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\'',
 // let parameters = [lowerCase, upperCase, numbers, specialCharacters];
 
 //function to generate random password
-function generatePassword(passwordLength, lower, upper, numb) { //passwordLength determines how many characters the password will be.
+function generatePassword(passwordLength, lower, upper, numb, special) { //passwordLength determines how many characters the password will be.
   let generatedPassword = [];
   let parameters = [];
 
@@ -37,6 +37,11 @@ function generatePassword(passwordLength, lower, upper, numb) { //passwordLength
   }else if (numb == null || true) {
     parameters.push(numbers);
   };
+
+  //enables special characters
+  if(special == true) {
+    parameters.push(specialCharacters);
+  }
 
 
   for (let i = 0; i < passwordLength; i++) {
@@ -62,8 +67,10 @@ document.getElementById("generate-password").addEventListener("click", function(
   let passwordLowerCase = document.getElementById("lower-case").checked;
   let passwordUpperCase = document.getElementById("upper-case").checked;
   let passwordNumbers = document.getElementById("numbers").checked;
+
+  let passwordSpecialCharacters = document.getElementById("special-characters").checked;
   
   let passwordLength = document.getElementById("password-length").value;
-  let result = generatePassword(passwordLength, passwordLowerCase, passwordUpperCase, passwordNumbers);
+  let result = generatePassword(passwordLength, passwordLowerCase, passwordUpperCase, passwordNumbers, passwordSpecialCharacters);
   document.getElementById("generated-password").value = result;
 });
