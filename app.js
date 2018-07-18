@@ -15,39 +15,39 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
   let parameters = [];
 
   //set lower case by default
-  if(lower == false) {
+  if (lower == false) {
     //do nothing
-  }else if (lower == null || true) {
+  } else if (lower == null || true) {
     parameters.push(lowerCase);
   };
 
   //set upper case by default
-  if(upper == false) {
+  if (upper == false) {
     //do nothing
-  }else if (upper == null || true) {
+  } else if (upper == null || true) {
     parameters.push(upperCase);
   };
 
   //set numbers case by default
-  if(numb == false) {
+  if (numb == false) {
     //do nothing
-  }else if (numb == null || true) {
+  } else if (numb == null || true) {
     parameters.push(numbers);
   };
 
   //enables special characters
-  if(special == true) {
+  if (special == true) {
     parameters.push(specialCharacters);
   }
 
   //enables optional characters
-  if(optional == true) {
+  if (optional == true) {
     parameters.push(optionalCharacters);
   }
 
   for (let i = 0; i < passwordLength; i++) {
-    let charSet = Math.floor(Math.random()*parameters.length);
-    let charSel = Math.floor(Math.random()*parameters[charSet].length);
+    let charSet = Math.floor(Math.random() * parameters.length);
+    let charSel = Math.floor(Math.random() * parameters[charSet].length);
 
     //Checking password for speficied modifications
 
@@ -62,8 +62,23 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
     generatedPassword.push(parameters[charSet][charSel]);
 
     // if enabled will make sure first character is a letter.
-    if(firstLetter == true) {
-      console.log('first letter option selected.');
+    if (firstLetter == true) {
+      // need something to prevent selecting false on upper and lower case to cause crash.
+
+      let first = false;
+      if (i == 0) {
+        console.log('first letter option selected.');
+        for (let j = 0; j < lowerCase.length; j++) {
+          if (generatedPassword[0] == lowerCase[j] || generatedPassword[0] == upperCase[j]) {
+            first = true;
+          }
+        }
+        if(first == false) {
+          console.log('First character not a letter');
+          generatedPassword.pop();
+          i--;
+        }
+      }
     }
   };
   console.log('gen pass length: ', generatedPassword.length);
@@ -71,9 +86,9 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
 };
 
 //function to generate password to web page
-document.getElementById("generate-password").addEventListener("click", function(event){
+document.getElementById("generate-password").addEventListener("click", function (event) {
   event.preventDefault();
-  
+
   //choose character options and customization
   let passwordLowerCase = document.getElementById("lower-case").checked;
   let passwordUpperCase = document.getElementById("upper-case").checked;
@@ -82,16 +97,16 @@ document.getElementById("generate-password").addEventListener("click", function(
   let passwordOptionalCharacters = document.getElementById("optional-characters").checked;
   let passwordBeginsWithLetter = document.getElementById("begin-with-letter").checked;
   let passwordRepeatingCharacters = document.getElementById("repeating-characters").checked;
-  
+
   let passwordLength = document.getElementById("password-length").value;
   let result = generatePassword(
-    passwordLength, 
-    passwordLowerCase, 
-    passwordUpperCase, 
-    passwordNumbers, 
-    passwordSpecialCharacters, 
+    passwordLength,
+    passwordLowerCase,
+    passwordUpperCase,
+    passwordNumbers,
+    passwordSpecialCharacters,
     passwordOptionalCharacters,
-    passwordBeginsWithLetter, 
+    passwordBeginsWithLetter,
     passwordRepeatingCharacters
   );
   document.getElementById("generated-password").value = result;
