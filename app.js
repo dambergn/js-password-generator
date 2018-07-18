@@ -9,11 +9,8 @@ const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; //10 charact
 const specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']; //10 Characters
 const optionalCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\'', '\"', '<', '>', ',', '.', '?', '/', '|', '`', '~']; //21 Characters
 
-//what paramaters to use to generate password.
-// let parameters = [lowerCase, upperCase, numbers, specialCharacters];
-
 //function to generate random password
-function generatePassword(passwordLength, lower, upper, numb, special, optional) { //passwordLength determines how many characters the password will be.
+function generatePassword(passwordLength, lower, upper, numb, special, optional, firstLetter, repeat) { //passwordLength determines how many characters the password will be.
   let generatedPassword = [];
   let parameters = [];
 
@@ -52,17 +49,22 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional)
     let charSet = Math.floor(Math.random()*parameters.length);
     let charSel = Math.floor(Math.random()*parameters[charSet].length);
 
-    //checks if a repeating character
-    if (parameters[charSet][charSel] === generatedPassword[i - 1]) {
-      console.log('duplicate character found and dropped');
-      i--;
-    } else {
-      generatedPassword.push(parameters[charSet][charSel]);
+    //Checking password for speficied modifications
+
+    if (repeat == true) {
+      if (parameters[charSet][charSel] === generatedPassword[i - 1]) {
+        console.log('duplicate character found and dropped');
+        generatedPassword.pop();
+        i--;
+      }
     }
 
-    //if enabled will make sure first character is a letter.
-    // if(firstLetter == true) {
-    // }
+    generatedPassword.push(parameters[charSet][charSel]);
+
+    // if enabled will make sure first character is a letter.
+    if(firstLetter == true) {
+      console.log('first letter option selected.');
+    }
   };
   console.log('gen pass length: ', generatedPassword.length);
   return generatedPassword.join('');
@@ -78,6 +80,8 @@ document.getElementById("generate-password").addEventListener("click", function(
   let passwordNumbers = document.getElementById("numbers").checked;
   let passwordSpecialCharacters = document.getElementById("special-characters").checked;
   let passwordOptionalCharacters = document.getElementById("optional-characters").checked;
+  let passwordBeginsWithLetter = document.getElementById("begin-with-letter").checked;
+  let passwordRepeatingCharacters = document.getElementById("repeating-characters").checked;
   
   let passwordLength = document.getElementById("password-length").value;
   let result = generatePassword(
@@ -86,7 +90,9 @@ document.getElementById("generate-password").addEventListener("click", function(
     passwordUpperCase, 
     passwordNumbers, 
     passwordSpecialCharacters, 
-    passwordOptionalCharacters
+    passwordOptionalCharacters,
+    passwordBeginsWithLetter, 
+    passwordRepeatingCharacters
   );
   document.getElementById("generated-password").value = result;
 });
