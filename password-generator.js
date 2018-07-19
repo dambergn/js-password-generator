@@ -51,6 +51,9 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
     //Checking password for speficied modifications
 
     if (repeat == true) {
+      if (i == 0) {
+        console.log('no duplicate characters selected.');
+      }
       if (parameters[charSet][charSel] === generatedPassword[i - 1]) {
         console.log('duplicate character found and dropped');
         generatedPassword.pop();
@@ -82,7 +85,9 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
 
     // if enabled will not use similar looking characters.
     if (noSimilar == true) {
-      console.log('no similar characters option selected.');
+      if (i == 0) {
+        console.log('no similar characters option selected.');
+      }
       for (let k = 0; k < similarCharacters.length; k++) {
         if (generatedPassword[i] == similarCharacters[k]) {
           console.log('Found invalid character');
