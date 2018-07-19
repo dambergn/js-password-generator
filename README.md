@@ -26,7 +26,7 @@ generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCha
 - [X]Choose other special characters.
 - [X]Prevent repeats.
 - [X]Ensure first character is a letter.
-- [ ]Exclude similar characters. (helpful if the password is not being coppied and pasted)
+- [X]Exclude similar characters. (helpful if the password is not being coppied and pasted)
 - [X]Basic presets if options are not selected.
 - [ ]Don't use sequential characters.
 - [ ]Choose specific characters to exclude.
@@ -39,3 +39,4 @@ generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCha
 
 # Similar characters
 These characters are often mistaken for each other if being typed or especially if being written down.
+o O 0 i j l I S $ 5 B 8
