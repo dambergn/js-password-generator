@@ -13,6 +13,7 @@ document.getElementById("generate-password").addEventListener("click", function 
   let passwordBeginsWithLetter = document.getElementById("begin-with-letter").checked;
   let passwordRepeatingCharacters = document.getElementById("repeating-characters").checked;
   let passwordNoSimilarCharacters = document.getElementById("similar-characters").checked;
+  let passwordNoSequentialCharacters = document.getElementById("sequential-characters").checked;
 
   let passwordLength = document.getElementById("password-length").value;
   let result = generatePassword(
@@ -24,7 +25,8 @@ document.getElementById("generate-password").addEventListener("click", function 
     passwordOptionalCharacters,
     passwordBeginsWithLetter,
     passwordRepeatingCharacters,
-    passwordNoSimilarCharacters
+    passwordNoSimilarCharacters,
+    passwordNoSequentialCharacters
   );
   document.getElementById("generated-password").value = result;
 });

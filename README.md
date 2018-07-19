@@ -28,7 +28,7 @@ generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCha
 - [X]Ensure first character is a letter.
 - [X]Exclude similar characters. (helpful if the password is not being coppied and pasted)
 - [X]Basic presets if options are not selected.
-- [ ]Don't use sequential characters.
+- [X]Don't use sequential characters.
 - [ ]Choose specific characters to exclude.
 - [ ]Spefify a minimum ammount for each character type.
 - [ ]Password strength checker.

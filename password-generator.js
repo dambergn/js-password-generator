@@ -9,7 +9,7 @@ const optionalCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\
 const similarCharacters = ['o', 'O', '0', 'i', 'j', 'l', 'I', 'S', '$', '5', 'B', '8'];
 
 //function to generate random password
-function generatePassword(passwordLength, lower, upper, numb, special, optional, firstLetter, repeat, noSimilar) { //passwordLength determines how many characters the password will be.
+function generatePassword(passwordLength, lower, upper, numb, special, optional, firstLetter, repeat, noSimilar, noSequential) { //passwordLength determines how many characters the password will be.
   let generatedPassword = [];
   let parameters = [];
 
@@ -86,8 +86,22 @@ function generatePassword(passwordLength, lower, upper, numb, special, optional,
       for (let k = 0; k < similarCharacters.length; k++) {
         if (generatedPassword[i] == similarCharacters[k]) {
           console.log('Found invalid character');
-        generatedPassword.pop();
-        i--;
+          generatedPassword.pop();
+          i--;
+        }
+      }
+    }
+
+    // if enabled will not use sequential characters.
+    if (noSequential == true) {
+      if (i == 0) {
+        console.log('no sequential characters option selected.');
+      }
+      if (i > 0) {
+        if (generatedPassword[i - 1] === parameters[charSet][charSel - 1] || generatedPassword[i - 1] === parameters[charSet][charSel + 1]) {
+          // console.log('Found invalid character: ', parameters[charSet][charSel - 1], generatedPassword[i - 1], parameters[charSet][charSel + 1]);
+          generatedPassword.pop();
+          i--;
         }
       }
     }
