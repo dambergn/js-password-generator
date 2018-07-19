@@ -26,13 +26,17 @@ generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCha
 - [X]Choose other special characters.
 - [X]Prevent repeats.
 - [X]Ensure first character is a letter.
-- [ ]Exclude similar characters. (helpful if the password is not being coppied and pasted)
+- [X]Exclude similar characters. (helpful if the password is not being coppied and pasted)
 - [X]Basic presets if options are not selected.
-- [ ]Don't use similar characters.
-- [ ]Don't use sequential characters.
+- [X]Don't use sequential characters.
 - [ ]Choose specific characters to exclude.
+- [ ]Spefify a minimum ammount for each character type.
 - [ ]Password strength checker.
 
 # Bugs and fixes
 - [ ]Prohibbit combination of no uppercase, no lowercase, begins with a letter. (causes crash)
 - [ ]Find a better way to specify options while calling the function.
+
+# Similar characters
+These characters are often mistaken for each other if being typed or especially if being written down.
+o O 0 i j l I S $ 5 B 8
