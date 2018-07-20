@@ -5,7 +5,9 @@ document.getElementById("generate-password").addEventListener("click", function 
   event.preventDefault();
 
   //choose character options and customization
+  let passwordLength = document.getElementById("password-length").value;
   let passwordLowerCase = document.getElementById("lower-case").checked;
+  let passwordLowerCaseMin = document.getElementById("lower-case-min").value;
   let passwordUpperCase = document.getElementById("upper-case").checked;
   let passwordNumbers = document.getElementById("numbers").checked;
   let passwordSpecialCharacters = document.getElementById("special-characters").checked;
@@ -15,10 +17,10 @@ document.getElementById("generate-password").addEventListener("click", function 
   let passwordNoSimilarCharacters = document.getElementById("similar-characters").checked;
   let passwordNoSequentialCharacters = document.getElementById("sequential-characters").checked;
 
-  let passwordLength = document.getElementById("password-length").value;
   let result = generatePassword(
     passwordLength,
     passwordLowerCase,
+    passwordLowerCaseMin,
     passwordUpperCase,
     passwordNumbers,
     passwordSpecialCharacters,

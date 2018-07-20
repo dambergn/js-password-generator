@@ -13,7 +13,7 @@
   <div id="generator">
     <h1>Password Generator</h1>
     <form>
-      <p>Select Password Length: </p>
+      <p>Select Password Length: 
       <select id="password-length" value="6">
         <option disabled>-- Weak --</option>
         <option value="6" selected>6</option>
@@ -35,13 +35,47 @@
         <option value="512">512</option>
         <option value="1024">1024</option>
         <option value="2048">2048</option>
-      </select>
-      <br>
-      <input checked type="checkbox" id="lower-case"> Lower case letters<br>
-      <input checked type="checkbox" id="upper-case"> Upper case letters<br>
-      <input checked type="checkbox" id="numbers"> Numbers<br>
-      <input type="checkbox" id="special-characters"> Use special characters<br>
-      <input type="checkbox" id="optional-characters"> Use optional characters<br>
+      </select></p>
+      <input checked type="checkbox" id="lower-case"> Lower case letters, @ least 
+        <select id="lower-case-min">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+      <input checked type="checkbox" id="upper-case"> Upper case letters, @ least 
+      <select id="upper-case-min">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
+      <input checked type="checkbox" id="numbers"> Numbers, @ least 
+      <select id="number-min">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
+      <input type="checkbox" id="special-characters"> Use special characters, @ least 
+      <select id="special-case-min">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
+      <input type="checkbox" id="optional-characters"> Use optional characters, @ least 
+      <select id="optional-case-min">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
       <input type="checkbox" id="begin-with-letter"> Password begins with a letter<br>
       <input type="checkbox" id="repeating-characters"> Don't use repeating characters<br>
       <input type="checkbox" id="similar-characters"> Don't use similar characters<br>
