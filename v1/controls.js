@@ -21,22 +21,22 @@ document.getElementById("generate-password").addEventListener("click", function 
   let passwordNoSimilarCharacters = document.getElementById("similar-characters").checked;
   let passwordNoSequentialCharacters = document.getElementById("sequential-characters").checked;
 
-  let result = generatePassword({
-    _length: passwordLength,
-    _lower: passwordLowerCase,
-    _lowerMin: passwordLowerCaseMin,
-    _upper: passwordUpperCase,
-    _upperMin: passwordUpperCaseMin,
-    _numb: passwordNumbers,
-    _numbMin: passwordNumbersMin,
-    _special: passwordSpecialCharacters,
-    _specialMin: passwordSpecialMin,
-    _optional: passwordOptionalCharacters,
-    _optionalMin: passwordOptionalMin,
-    _firstLetter: passwordBeginsWithLetter,
-    _repeat: passwordRepeatingCharacters,
-    _noSimilar: passwordNoSimilarCharacters,
-    _noSequential: passwordNoSequentialCharacters
-  });
+  let result = generatePassword(
+    passwordLength,
+    passwordLowerCase,
+    passwordLowerCaseMin,
+    passwordUpperCase,
+    passwordUpperCaseMin,
+    passwordNumbers,
+    passwordNumbersMin,
+    passwordSpecialCharacters,
+    passwordSpecialMin,
+    passwordOptionalCharacters,
+    passwordOptionalMin,
+    passwordBeginsWithLetter,
+    passwordRepeatingCharacters,
+    passwordNoSimilarCharacters,
+    passwordNoSequentialCharacters
+  );
   document.getElementById("generated-password").value = result;
 });

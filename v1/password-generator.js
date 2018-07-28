@@ -9,40 +9,23 @@ const optionalCharacters = ['-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '\
 const similarCharacters = ['o', 'O', '0', 'i', 'j', 'l', 'I', 'S', '$', '5', 'B', '8'];
 
 //function to generate random password
-function generatePassword({
-  _length,
-  _lower,
-  _lowerMin,
-  _upper,
-  _upperMin,
-  _numb,
-  _numbMin,
-  _special,
-  _specialMin,
-  _optional,
-  _optionalMin,
-  _firstLetter,
-  _repeat,
-  _noSimilar,
-  _noSequential
-}={}) {
-  // debugger;
-  let passwordLength = _length;
-  let lower = _lower;
-  let lowerMin = _lowerMin;
-  let upper = _upper;
-  let upperMin = _upperMin;
-  let numb = _numb;
-  let special = _special;
-  let specialMin = _specialMin;
-  let optional = _optional;
-  let optionalMin = _optionalMin;
-  let firstLetter= _firstLetter;
-  let repeat = _repeat;
-  let noSimilar = _noSimilar;
-  let noSequential = _noSequential;
-  let numbMin = _numbMin;
-
+function generatePassword(
+  passwordLength,
+  lower,
+  lowerMin,
+  upper,
+  upperMin,
+  numb,
+  numbMin,
+  special,
+  specialMin,
+  optional,
+  optionalMin,
+  firstLetter,
+  repeat,
+  noSimilar,
+  noSequential
+) {
   let generatedPassword = [];
   let parameters = [];
 

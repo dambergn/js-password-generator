@@ -10,12 +10,24 @@ https://passwordsgenerator.net/
 
 The app has the ability to chose what type of characters to use with several customization options.  The use of Upper Case, Lower Case, And numbers is use by default.
 
-To call the function simply use generatePassword(8); with the first paramater being a number stating how many characters long you want the password to be.  If you want to add more options use true or fasle in weather you want to use them or not.  If you choose you want to use any of the other cases you need to call weather or not you want lower upper and numbers defaults will be over written.
+To call the function simply use generatePassword({_length: 8}); with the first paramater being a number stating how many characters long you want the password to be.  Other options are available below and can be added by sperating them in the function with a comma ,
 
-replace # with the numerical character length you want the password to be.
-replace the other options with true or false depending on if you want to use those options.
+  _length: #number  -Determines length of password
+  _lower: true/false        -If you want to use lower case letters
+  _lowerMin: #number        -If you want a mimimum ammount of lower case letters used
+  _upper: true/false        -If you want to use upper case letters
+  _upperMin: #number        -If you want a mimimum ammount of upper case letters used
+  _numb: true/false         -If you want to use numbers
+  _numbMin: #number         -If you want a minimum ammount of numbers to be used
+  _special: true/false      -If you want to use special characters [!, @, #, $, %, ^, &, *, (, )]
+  _specialMin: #number      -If you want a minimum ammount of special characters to be used
+  _optional: true/false     -If you want to use optional characters [-, _, =, +, [, ], {, }, ;, :, '', ", <, >, ,, ., ?, /, |, `, ~]
+  _optionalMin: #number     -If you want a minimum ammount of optional characters to be used
+  _firstLetter: true/false  -If you want the first character to be a letter
+  _repeat: true/false       -If you do not want two of the same character next to each other
+  _noSimilar: true/false    -If you do not want to use similar looking characters.
+  _noSequential: true/false -If you do not want characters that are normally next to each other to be used as such, 123, abc, etc.
 
-generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCharacters, beginsWithALetter, repeatingCharacters);
 
 # Features
 - [X]Choose password length.
@@ -35,7 +47,7 @@ generatePassword(#, lowerCase, upperCase, numbers, specialCaracters, optionalCha
 
 # Bugs and fixes
 - [ ]Prohibbit combination of no uppercase, no lowercase, begins with a letter. (causes crash)
-- [ ]Find a better way to specify options while calling the function.
+- [X]Find a better way to specify options while calling the function.
 
 # Similar characters
 These characters are often mistaken for each other if being typed or especially if being written down.
