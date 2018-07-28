@@ -1,0 +1,9 @@
+#generator{
+  border: 1px solid black;
+  max-width: 700px;
+}
+
+#generated-password {
+  width: 680px;
+  height: 380px;
+}
