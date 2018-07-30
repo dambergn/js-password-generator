@@ -3,7 +3,7 @@ a fully featured password genorator that can be used as a web app or as part of 
 
 This application is still in development, at the bottom are a list of features desired for the app and which ones are complete.
 
-There is a live version of this app at http://www.mhzsys.net/beta/applications/js-password-generator/
+There is a live version of this app at http://www.mhzsys.net/applications/js-password-generator/
 
 This generator is based on and inspired by the password generator at, 
 https://passwordsgenerator.net/
