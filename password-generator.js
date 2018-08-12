@@ -57,10 +57,18 @@ function generatePassword({
     let parameters = [];
 
     let minCharacters = parseInt(lowerMin) + parseInt(upperMin) + parseInt(numbMin) + parseInt(specialMin) + parseInt(optionalMin)
-    console.log(minCharacters, parseInt(passwordLength))
+    
+    // Bug fix for min characters and password length.
     if (minCharacters > parseInt(passwordLength)){
       console.log('Minimum ammount of characters can not exceed requestd password length.')
       alert('Minimum ammount of characters can not exceed requestd password length.')
+      break;
+    }
+
+    // Bug fix for no letters while requiring pass to begin with a letter.
+    if(lower == false && upper == false && firstLetter == true){
+      console.log('Must use Letters if requiring first character to be a letter.')
+      alert('Must use Letters if requiring first character to be a letter.')
       break;
     }
 
