@@ -42,11 +42,12 @@ To call the function simply use generatePassword({_length: 8}); with the first p
 - [X]Basic presets if options are not selected.
 - [X]Don't use sequential characters.
 - [ ]Choose specific characters to exclude.
-- [ ]Spefify a minimum ammount for each character type.
+- [X]Spefify a minimum ammount for each character type.
 - [ ]Password strength checker.
 
 # Bugs and fixes
 - [ ]Prohibbit combination of no uppercase, no lowercase, begins with a letter. (causes crash)
+- [ ]Prevent minimum characters from exceeding password length.
 - [X]Find a better way to specify options while calling the function.
 
 # Similar characters
