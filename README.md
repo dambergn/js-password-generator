@@ -47,7 +47,7 @@ To call the function simply use generatePassword({_length: 8}); with the first p
 
 # Bugs and fixes
 - [ ]Prohibbit combination of no uppercase, no lowercase, begins with a letter. (causes crash)
-- [ ]Prevent minimum characters from exceeding password length.
+- [X]Prevent minimum characters from exceeding password length.
 - [X]Find a better way to specify options while calling the function.
 
 # Similar characters

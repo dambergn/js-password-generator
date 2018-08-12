@@ -56,6 +56,14 @@ function generatePassword({
     let generatedPassword = [];
     let parameters = [];
 
+    let minCharacters = parseInt(lowerMin) + parseInt(upperMin) + parseInt(numbMin) + parseInt(specialMin) + parseInt(optionalMin)
+    console.log(minCharacters, parseInt(passwordLength))
+    if (minCharacters > parseInt(passwordLength)){
+      console.log('Minimum ammount of characters can not exceed requestd password length.')
+      alert('Minimum ammount of characters can not exceed requestd password length.')
+      break;
+    }
+
     //set lower case by default
     if (lower == false) {
       //do nothing
